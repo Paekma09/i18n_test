@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.i18n_test.mapper.TranslationMapper">
+    <resultMap id="TranslationResultMap" type="com.example.i18n_test.model.Translation">
+        <id property="id" column="id" />
+        <result property="language" column="language" />
+        <result property="key" column="key" />
+        <result property="value" column="value" />
+    </resultMap>
+
+    <select id="findByLanguage" resultMap="TranslationResultMap">
+        SELECT * FROM translations WHERE language = #{language}
+    </select>
+
+    <insert id="saveTranslation">
+        INSERT INTO translations (language, `key`, `value`) VALUES (#{language}, #{key}, #{value})
+    </insert>
+</mapper>
