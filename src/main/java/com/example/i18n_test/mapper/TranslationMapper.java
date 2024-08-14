@@ -8,6 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface TranslationMapper {
-    List<Translation> findByLanguage(@Param("language") String language);
+    Translation findById(@Param("id") Long id);
     void saveTranslation(Translation translation);
+    List<Translation> findAll();
 }

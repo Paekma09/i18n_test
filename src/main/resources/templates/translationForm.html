@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Translation Form</title>
 </head>
 <body>
-<h1>Translation Form</h1>
-<form th:action="@{/translations}" th:object="${translation}" method="post">
-    <div>
-        <label for="language">Language:</label>
-        <input type="text" id="language" th:field="*{language}" />
-    </div>
-    <div>
-        <label for="key">Key:</label>
-        <input type="text" id="key" th:field="*{key}" />
-    </div>
-    <div>
-        <label for="value">Value:</label>
-        <input type="text" id="value" th:field="*{value}" />
-    </div>
-    <div>
-        <button type="submit">Save</button>
-    </div>
-</form>
+    <h1>Translation Form</h1>
+    <form th:action="@{/translations}" th:object="${translation}" method="post">
+        <div>
+            <label for="key">다국어 코드</label>
+            <input type="text" id="key" th:field="*{key}" />
+        </div>
+        <div>
+            <label for="ko">한국어</label>
+            <input type="text" id="ko" th:field="*{values[0].value}" />
+        </div>
+        <div>
+            <label for="en">영어</label>
+            <input type="text" id="en" th:field="*{values[1].value}" />
+        </div>
+        <div>
+            <label for="jp">일본어</label>
+            <input type="text" id="jp" th:field="*{values[2].value}" />
+        </div>
+        <div>
+            <label for="cn">중국어</label>
+            <input type="text" id="cn" th:field="*{values[3].value}" />
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
 </body>
 </html>

@@ -1,10 +1,11 @@
 package com.example.i18n_test.model;
 
+import java.util.List;
+
 public class Translation {
     private Long id;
-    private String language;
     private String key;
-    private String value;
+    private List<TranslationValue> values;
 
     public Long getId() {
         return id;
@@ -12,14 +13,6 @@ public class Translation {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
     }
 
     public String getKey() {
@@ -30,11 +23,11 @@ public class Translation {
         this.key = key;
     }
 
-    public String getValue() {
-        return value;
+    public List<TranslationValue> getValues() {
+        return values;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValues(List<TranslationValue> values) {
+        this.values = values;
     }
 }

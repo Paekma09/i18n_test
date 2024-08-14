@@ -4,18 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.i18n_test.mapper.TranslationMapper">
-    <resultMap id="TranslationResultMap" type="com.example.i18n_test.model.Translation">
-        <id property="id" column="id" />
-        <result property="language" column="language" />
-        <result property="key" column="key" />
-        <result property="value" column="value" />
-    </resultMap>
-
-    <select id="findByLanguage" resultMap="TranslationResultMap">
-        SELECT * FROM translations WHERE language = #{language}
+    <select id="findById" resultType="com.example.i18n_test.model.Translation">
+        SELECT *
+        FROM translation
+        WHERE id = #{id}
     </select>
-
     <insert id="saveTranslation">
-        INSERT INTO translations (language, `key`, `value`) VALUES (#{language}, #{key}, #{value})
+        INSERT INTO translation (`key`)
+        VALUES (#{key})
     </insert>
+    <select id="findAll" resultType="com.example.i18n_test.model.Translation"> <!-- 쿼리 추가 -->
+        SELECT * FROM translation
+    </select>
 </mapper>
